@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MusicTabs</string>
+    <string name="tab_rock">ROCK</string>
+    <string name="tab_classic">CLASSIC</string>
+    <string name="tab_pop">POP</string>
+    <string name="artwork">ARTWORK</string>
+    <string name="tv_artist_name">ARTIST NAME</string>
+    <string name="tv_collection_name">COLLECTION NAME</string>
+    <string name="tv_track_price">TRACK PRICE</string>
+</resources>
