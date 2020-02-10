@@ -5,14 +5,22 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import java.util.List;
+
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private int numOfTabs;
+    RockFragment rockFragment = new RockFragment();
+    ClassicFragment classicFragment = new ClassicFragment();
+    PopFragment popFragment = new PopFragment();
 
     public ViewPagerAdapter(FragmentManager fragmentManager, int numOfTabs){
         super(fragmentManager, numOfTabs);
         this.numOfTabs = numOfTabs;
     }
+
+
+
 
     @NonNull
     @Override
@@ -20,11 +28,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:
-                return new RockFragment(); //check whether if new is needed
+                return rockFragment; //check whether if new is needed
             case 1:
-                return new ClassicFragment();
+                return classicFragment;
             case 2:
-                return new PopFragment();
+                return popFragment;
             default:
                 return null;
         }
@@ -34,4 +42,25 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return numOfTabs;
     }
+
+    public void updateMusicList(List<Music> musicList, int position){
+
+        switch (position) {
+            case 0:
+                rockFragment.setMusicList(musicList);
+                break;
+            case 1:
+                classicFragment.setMusicList(musicList);
+                break;
+            case 2:
+                popFragment.setMusicList(musicList);
+                break;
+            default:
+                break;
+        }
+
+        getItem(position);
+    }
 }
+
+

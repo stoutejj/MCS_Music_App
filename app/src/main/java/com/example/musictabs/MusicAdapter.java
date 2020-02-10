@@ -1,5 +1,6 @@
 package com.example.musictabs;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +13,12 @@ import java.util.List;
 public class MusicAdapter extends RecyclerView.Adapter<MusicViewHolder>{
 
     private List<Music> musicList;
+    private static final String TAG = "MusicAdapter";
 
-    public MusicAdapter(List<Music> musicList) {
-
+    public void setMusicList(List<Music> musicList){
         this.musicList = musicList;
-
-    }
-
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
+        Log.d(TAG, "SET MUSIC LIST" + musicList.toString());
+        notifyDataSetChanged();
     }
 
 

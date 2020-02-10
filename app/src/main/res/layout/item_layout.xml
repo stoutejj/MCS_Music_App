@@ -3,38 +3,48 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/artwork"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginLeft="10dp"
-        app:srcCompat="@drawable/rock" />
-
-    <TextView
-        android:id="@+id/tv_artist_name"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="140dp"
-        android:text="@string/tv_artist_name" />
+        app:cardBackgroundColor="@android:color/holo_red_dark"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true">
 
-    <TextView
-        android:id="@+id/tv_collection_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginLeft="140dp"
-        android:text="@string/tv_collection_name" />
+        <ImageView
+            android:id="@+id/artwork"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="10dp"
+            app:srcCompat="@drawable/rock" />
 
-    <TextView
-        android:id="@+id/tv_track_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="310dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/tv_track_price" />
+        <TextView
+            android:id="@+id/tv_artist_name"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/tv_artist_name" />
+
+        <TextView
+            android:id="@+id/tv_collection_name"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="64dp"
+            android:text="@string/tv_collection_name" />
+
+
+        <TextView
+            android:id="@+id/tv_track_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="280dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/tv_track_price" />
+    </androidx.cardview.widget.CardView>
 
 
 </RelativeLayout>

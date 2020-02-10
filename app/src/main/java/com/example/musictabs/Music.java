@@ -3,7 +3,7 @@ package com.example.musictabs;
 public class Music {
     public String artistName;
     public String collectionName;
-    public String artworkUrl;
+    public String artworkUrl60;
     public String trackPrice;
     public String currency;
 
@@ -15,7 +15,7 @@ public class Music {
 
         this.artistName = artistName;
         this.collectionName = collectionName;
-        this.artworkUrl = artworkUrl;
+        this.artworkUrl60 = artworkUrl;
         this.trackPrice = trackPrice;
         this.currency = currency;
     }
@@ -37,12 +37,12 @@ public class Music {
         this.collectionName = collectionName;
     }
 
-    public String getArtworkUrl() {
-        return artworkUrl;
+    public String getArtworkUrl60() {
+        return artworkUrl60;
     }
 
-    public void setArtworkUrl(String artworkUrl) {
-        this.artworkUrl = artworkUrl;
+    public void setArtworkUrl60(String artworkUrl60) {
+        this.artworkUrl60 = artworkUrl60;
     }
 
     public String getTrackPrice() {
