@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,11 +14,12 @@ import java.util.List;
 public class MusicAdapter extends RecyclerView.Adapter<MusicViewHolder>{
 
     private List<Music> musicList;
+    int position;
     private static final String TAG = "MusicAdapter";
 
     public void setMusicList(List<Music> musicList){
         this.musicList = musicList;
-        Log.d(TAG, "SET MUSIC LIST" + musicList.toString());
+        //Log.d(TAG, "SET MUSIC LIST" + musicList.toString());
         notifyDataSetChanged();
     }
 
@@ -30,6 +32,17 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicViewHolder>{
                         R.layout.item_layout,
                         parent,
                         false);
+/*
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position =
+                Log.d(TAG, "ON CLICK "+musicList.get(position).getArtistName());
+            }
+        });
+*/
+
+
 
         MusicViewHolder holder = new MusicViewHolder(view);
 

@@ -17,10 +17,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     ClassicFragment classicFragment = new ClassicFragment();
     PopFragment popFragment = new PopFragment();
 
-    TabItem tabRock;
-    TabItem tabClassic;
-    TabItem tabPop;
-
     public ViewPagerAdapter(FragmentManager fragmentManager, int numOfTabs){
         super(fragmentManager, numOfTabs);
         this.numOfTabs = numOfTabs;
