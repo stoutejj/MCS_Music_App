@@ -1,5 +1,6 @@
 package com.example.musictabs;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -46,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         tabLayout = findViewById(R.id.tab_layout);
-        tabRock = findViewById(R.id.tab_rock);
-        tabClassic = findViewById(R.id.tab_classic);
-        tabPop = findViewById(R.id.tab_pop);
+        //tabRock = findViewById(R.id.tab_rock);
+        //tabClassic = findViewById(R.id.tab_classic);
+        //tabPop = findViewById(R.id.tab_pop);
         viewPager = findViewById(R.id.view_pager);
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(viewPagerAdapter);
@@ -84,19 +85,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
 
-                if(position == 1){
-                    toolbar.setBackgroundColor(ContextCompat.getColor(MainActivity.this,android.R.color.darker_gray));
-                }
-                else if(position == 2){
+                //CHANGES THE COLOR OF THE TABS AND VIEW PAPER BASED ON THE GENRE OF MUSIC SELECTED
 
+                if(position == 0){
+                    viewPager.setBackgroundColor(Color.parseColor("#ffffff"));
+                    tabLayout.setBackgroundColor(Color.parseColor("#ffffff"));
+
+                }
+                else if(position == 1){
+                    viewPager.setBackgroundColor(Color.parseColor("#89cff0"));
+                    tabLayout.setBackgroundColor(Color.parseColor("#89cff0"));
                 }
                 else{
-
+                    viewPager.setBackgroundColor(Color.parseColor("#ffff00"));
+                    tabLayout.setBackgroundColor(Color.parseColor("#ffff00"));
                 }
 
                 networkCall(position);
                 Log.d(TAG, "TAB POSITION " + position);
-
             }
 
             @Override
