@@ -1,9 +1,12 @@
 package com.example.musictabs;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.google.android.material.tabs.TabItem;
 
 import java.util.List;
 
@@ -14,11 +17,14 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     ClassicFragment classicFragment = new ClassicFragment();
     PopFragment popFragment = new PopFragment();
 
+    TabItem tabRock;
+    TabItem tabClassic;
+    TabItem tabPop;
+
     public ViewPagerAdapter(FragmentManager fragmentManager, int numOfTabs){
         super(fragmentManager, numOfTabs);
         this.numOfTabs = numOfTabs;
     }
-
 
 
 
@@ -61,6 +67,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
         getItem(position);
     }
+
 }
 
 

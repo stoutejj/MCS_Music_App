@@ -53,6 +53,7 @@ public class RockFragment extends Fragment {
         rockRecyclerView = view.findViewById(R.id.rock_recycler);
 
 
+
         rockRecyclerView.setLayoutManager(linearLayoutManager);
 
 

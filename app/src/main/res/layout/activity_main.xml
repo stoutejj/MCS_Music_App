@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_red_dark"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -40,6 +41,7 @@
         android:id="@+id/tab_pop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
         android:icon="@drawable/pop"
         android:text="@string/tab_pop" />
 

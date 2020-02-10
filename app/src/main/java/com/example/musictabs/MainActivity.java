@@ -51,12 +51,26 @@ public class MainActivity extends AppCompatActivity {
         tabPop = findViewById(R.id.tab_pop);
         viewPager = findViewById(R.id.view_pager);
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(viewPagerAdapter);
+
         tabLayout.setupWithViewPager(viewPager);
+
+
+        //SETS TAB NAME AND ICON BASED ON POSITION
+        tabLayout.getTabAt(0).setIcon(R.drawable.rock);
+        tabLayout.getTabAt(0).setText("ROCK");
+
+        tabLayout.getTabAt(1).setIcon(R.drawable.classic);
+        tabLayout.getTabAt(1).setText("CLASSIC");
+
+
+        tabLayout.getTabAt(2).setIcon(R.drawable.pop);
+        tabLayout.getTabAt(2).setText("POP");
+
+
         //tabLayout.addTab(tabLayout.newTab().setCustomView(tabRock));
 
-        tabLayout.addTab(tab;
 
-        viewPager.setAdapter(viewPagerAdapter);
         //viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         networkCall(0);
@@ -70,10 +84,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
 
-
                 if(position == 1){
                     toolbar.setBackgroundColor(ContextCompat.getColor(MainActivity.this,android.R.color.darker_gray));
                 }
+                else if(position == 2){
+
+                }
+                else{
+
+                }
+
                 networkCall(position);
                 Log.d(TAG, "TAB POSITION " + position);
 
@@ -109,6 +129,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Results> call, Response<Results> response) {
                 viewPagerAdapter.updateMusicList(response.body().results, position);
+
+                Toast.makeText(MainActivity.this,
+                        "FOUND "+ response.body().getResultCount()+" RESULTS",
+                        Toast.LENGTH_LONG).show();
 
                 Log.d(TAG, response.body().results.toString());
             }
