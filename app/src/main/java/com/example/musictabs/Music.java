@@ -6,18 +6,23 @@ public class Music {
     public String artworkUrl60;
     public String trackPrice;
     public String currency;
+    public String previewUrl;
+
+
 
     public Music(String artistName,
                  String collectionName,
                  String artworkUrl,
                  String trackPrice,
-                 String currency) {
+                 String currency,
+                 String previewUrl) {
 
         this.artistName = artistName;
         this.collectionName = collectionName;
         this.artworkUrl60 = artworkUrl;
         this.trackPrice = trackPrice;
         this.currency = currency;
+        this.previewUrl = previewUrl;
     }
 
 
@@ -59,5 +64,13 @@ public class Music {
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public String getPreviewUrl() {
+        return previewUrl;
+    }
+
+    public void setPreviewUrl(String previewUrl) {
+        this.previewUrl = previewUrl;
     }
 }

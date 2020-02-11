@@ -19,17 +19,16 @@ public class ClassicFragment extends Fragment {
     RecyclerView classicRecyclerView;
     List<Music> musicList = new ArrayList<>();
     MusicAdapter musicAdapter = new MusicAdapter();
-    private static final String TAG = "ClassicFragment";
+    PreviewMusicListener previewMusicListener;
 
 
     public List<Music> getMusicList() {
         return musicList;
     }
 
-    public void setMusicList(List<Music> musicList) {
+    public void setMusicList(List<Music> musicList, PreviewMusicListener previewMusicListener) {
         this.musicList = musicList;
-        musicAdapter.setMusicList(musicList);
-        Log.d(TAG, "SET MUSIC LIST" + musicList.toString());
+        musicAdapter.setMusicList(musicList,previewMusicListener);
     }
 
     @Nullable

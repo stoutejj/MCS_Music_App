@@ -1,12 +1,10 @@
 package com.example.musictabs;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.google.android.material.tabs.TabItem;
 
 import java.util.List;
 
@@ -45,17 +43,17 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return numOfTabs;
     }
 
-    public void updateMusicList(List<Music> musicList, int position){
+    public void updateMusicList(List<Music> musicList, int position,PreviewMusicListener previewMusicListener){
 
         switch (position) {
             case 0:
-                rockFragment.setMusicList(musicList);
+                rockFragment.setMusicList(musicList,previewMusicListener);
                 break;
             case 1:
-                classicFragment.setMusicList(musicList);
+                classicFragment.setMusicList(musicList,previewMusicListener);
                 break;
             case 2:
-                popFragment.setMusicList(musicList);
+                popFragment.setMusicList(musicList,previewMusicListener);
                 break;
             default:
                 break;

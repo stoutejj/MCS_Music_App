@@ -1,6 +1,8 @@
 package com.example.musictabs;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -22,7 +24,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PreviewMusicListener{
     Toolbar toolbar;
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -33,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     MusicAdapter musicAdapter;
     RecyclerView musicRecyclerView;
-
-    private static final String TAG = "MainActivity";
 
 
     @Override
@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 networkCall(position);
-                Log.d(TAG, "TAB POSITION " + position);
             }
 
             @Override
@@ -134,13 +133,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<Results> call, Response<Results> response) {
-                viewPagerAdapter.updateMusicList(response.body().results, position);
+                viewPagerAdapter.updateMusicList(response.body().results, position,MainActivity.this);
 
                 Toast.makeText(MainActivity.this,
                         "FOUND "+ response.body().getResultCount()+" RESULTS",
                         Toast.LENGTH_LONG).show();
-
-                Log.d(TAG, response.body().results.toString());
             }
 
             @Override
@@ -148,15 +145,18 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,
                         t.getMessage(),
                         Toast.LENGTH_LONG).show();
-                Log.d(TAG, t.getMessage());
             }
         });
 
     }
 
+    @Override
+    public void previewMusic(Music music) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.parse(music.getPreviewUrl()), "audio/*");
+        if(intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+
+    }}
 }
-
-
-
-
 

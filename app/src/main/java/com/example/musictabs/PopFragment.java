@@ -19,6 +19,8 @@ public class PopFragment extends Fragment {
     RecyclerView popRecyclerView;
     List<Music> musicList = new ArrayList<>();
     MusicAdapter musicAdapter = new MusicAdapter();
+    PreviewMusicListener previewMusicListener;
+
 
     private static final String TAG = "PopFragment";
 
@@ -26,10 +28,9 @@ public class PopFragment extends Fragment {
         return musicList;
     }
 
-    public void setMusicList(List<Music> musicList) {
+    public void setMusicList(List<Music> musicList, PreviewMusicListener previewMusicListener) {
         this.musicList = musicList;
-        musicAdapter.setMusicList(musicList);
-        Log.d(TAG, "SET MUSIC LIST" + musicList.toString());
+        musicAdapter.setMusicList(musicList,previewMusicListener);
     }
 
     @Nullable

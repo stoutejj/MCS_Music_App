@@ -22,18 +22,16 @@ public class RockFragment extends Fragment {
     RecyclerView rockRecyclerView;
     List<Music> musicList = new ArrayList<>();
     MusicAdapter musicAdapter = new MusicAdapter();
-    private static final String TAG = "RockFragment";
+    PreviewMusicListener previewMusicListener;
 
 
     public List<Music> getMusicList() {
         return musicList;
     }
 
-    public void setMusicList(List<Music> musicList) {
+    public void setMusicList(List<Music> musicList, PreviewMusicListener previewMusicListener) {
         this.musicList = musicList;
-        musicAdapter.setMusicList(musicList);
-
-        Log.d(TAG, "SET MUSIC LIST" + musicList.toString());
+        musicAdapter.setMusicList(musicList,previewMusicListener);
     }
 
     @Nullable
