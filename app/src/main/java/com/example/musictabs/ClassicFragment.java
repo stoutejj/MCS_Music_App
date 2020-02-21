@@ -19,12 +19,6 @@ public class ClassicFragment extends Fragment {
     RecyclerView classicRecyclerView;
     List<Music> musicList = new ArrayList<>();
     MusicAdapter musicAdapter = new MusicAdapter();
-    PreviewMusicListener previewMusicListener;
-
-
-    public List<Music> getMusicList() {
-        return musicList;
-    }
 
     public void setMusicList(List<Music> musicList, PreviewMusicListener previewMusicListener) {
         this.musicList = musicList;

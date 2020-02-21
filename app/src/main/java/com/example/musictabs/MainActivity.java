@@ -4,21 +4,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-
-import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,12 +19,6 @@ public class MainActivity extends AppCompatActivity implements PreviewMusicListe
     TabLayout tabLayout;
     ViewPager viewPager;
     ViewPagerAdapter viewPagerAdapter;
-    TabItem tabRock;
-    TabItem tabClassic;
-    TabItem tabPop;
-
-    MusicAdapter musicAdapter;
-    RecyclerView musicRecyclerView;
 
 
     @Override
@@ -47,9 +31,6 @@ public class MainActivity extends AppCompatActivity implements PreviewMusicListe
         setSupportActionBar(toolbar);
 
         tabLayout = findViewById(R.id.tab_layout);
-        //tabRock = findViewById(R.id.tab_rock);
-        //tabClassic = findViewById(R.id.tab_classic);
-        //tabPop = findViewById(R.id.tab_pop);
         viewPager = findViewById(R.id.view_pager);
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(viewPagerAdapter);
@@ -67,12 +48,6 @@ public class MainActivity extends AppCompatActivity implements PreviewMusicListe
 
         tabLayout.getTabAt(2).setIcon(R.drawable.pop);
         tabLayout.getTabAt(2).setText("POP");
-
-
-        //tabLayout.addTab(tabLayout.newTab().setCustomView(tabRock));
-
-
-        //viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         networkCall(0);
 

@@ -1,20 +1,14 @@
 package com.example.musictabs;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,12 +16,6 @@ public class RockFragment extends Fragment {
     RecyclerView rockRecyclerView;
     List<Music> musicList = new ArrayList<>();
     MusicAdapter musicAdapter = new MusicAdapter();
-    PreviewMusicListener previewMusicListener;
-
-
-    public List<Music> getMusicList() {
-        return musicList;
-    }
 
     public void setMusicList(List<Music> musicList, PreviewMusicListener previewMusicListener) {
         this.musicList = musicList;
